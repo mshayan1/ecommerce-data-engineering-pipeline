@@ -8,9 +8,15 @@ This project demonstrates a practical ETL pipeline using the Olist Brazilian e-c
 
 ## Architecture
 
-Olist CSV Datasets → Python & Pandas (ETL) → Neon PostgreSQL → SQL Queries
+```mermaid
+flowchart TD
+    A[Olist CSV Datasets] --> B[Python and Pandas ETL]
+    B --> C[Neon PostgreSQL]
+    D[GitHub Actions] --> B
+    C --> E[SQL Queries and Validation]
+```
 
-GitHub Actions automates pipeline execution.
+GitHub Actions runs the ETL script manually or on its configured daily schedule.
 
 ## Technologies Used
 
