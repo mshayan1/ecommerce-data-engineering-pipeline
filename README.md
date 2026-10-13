@@ -1,49 +1,79 @@
-E-Commerce Data Engineering Pipeline
+# E-Commerce Data Engineering Pipeline
 
- Project Overview
+An end-to-end data engineering project that extracts, transforms, and loads Brazilian e-commerce data into a cloud PostgreSQL database, with automated execution using GitHub Actions.
 
-This project demonstrates an end-to-end ETL pipeline using the Brazilian E-Commerce Public Dataset by Olist.
+## Project Overview
 
-The pipeline extracts e-commerce data from CSV files, transforms and validates the data using Python and Pandas, and loads the processed records into a PostgreSQL database hosted on Neon.
+This project demonstrates a practical ETL pipeline using the Olist Brazilian e-commerce dataset. Python and Pandas are used to process the data, Neon PostgreSQL stores the resulting tables, and GitHub Actions runs the pipeline automatically.
 
- Technologies Used
+## Architecture
 
-- Python
-- Pandas
-- PostgreSQL
-- Neon
-- SQL
-- GitHub
+Olist CSV Datasets → Python & Pandas (ETL) → Neon PostgreSQL → SQL Queries
 
-Pipeline Architecture
+GitHub Actions automates pipeline execution.
 
-1. Extract:Read raw e-commerce CSV files.
-2. Transform: Clean timestamps, standardize text, and inspect data quality.
-3. Load: Store processed orders, customers, and products in PostgreSQL.
-4. Validate: Check record counts and query the stored data.
+## Technologies Used
 
-Datasets
+- **Python** — ETL development
+- **Pandas** — Data cleaning and transformation
+- **PostgreSQL** — Relational database
+- **Neon** — Cloud-hosted PostgreSQL
+- **GitHub** — Version control and project hosting
+- **GitHub Actions** — Workflow automation
 
-- Orders: 99,441 records
-- Customers: 99,441 records
-- Products: 32,951 records
+## Dataset
 
-These are the initial dataset sizes observed during development.
+The project uses the public Olist Brazilian e-commerce dataset, containing customer, product, and order information.
 
-Current Status
+Source: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 
-- CSV extraction and inspection completed
-- Initial data cleaning implemented
-- PostgreSQL tables loaded and queried
-- Initial reusable ETL script created
+## ETL Workflow
 
-Automated scheduling, comprehensive testing, and production-grade error handling remain future improvements.
+1. Extract customer, product, and order CSV datasets.
+2. Transform data using Python and Pandas.
+3. Load processed records into PostgreSQL tables.
+4. Log processed row counts and database totals.
+5. Run the ETL script through GitHub Actions.
 
- Security
+## Tables and Results
 
-Database credentials should be stored in environment variables or a secrets manager. Never commit passwords or connection strings to the repository.
+| Table | Records processed |
+|---|---:|
+| Customers | 99,441 |
+| Products | 32,951 |
+| Orders | 99,441 |
+| **Total** | **231,833** |
 
- Dataset Source
+The latest verified GitHub Actions run completed successfully, and the logged database totals matched the processed record counts.
 
-Olist Brazilian E-Commerce Public Dataset:
-https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+## Automation
+
+The pipeline can be triggered manually through GitHub Actions. A scheduled workflow is also configured to run daily.
+
+## Skills Demonstrated
+
+- ETL pipeline development
+- Data extraction and transformation
+- SQL and relational database concepts
+- Cloud database integration
+- Workflow automation with GitHub Actions
+- Logging and basic pipeline validation
+- Version control with GitHub
+
+## Security
+
+Database credentials are stored in GitHub Actions Secrets and are not committed to the repository.
+
+## Future Improvements
+
+- Add automated data-quality tests.
+- Add structured error handling and retry logic.
+- Track pipeline execution history.
+- Improve incremental loading and duplicate handling.
+- Add data visualizations and monitoring.
+
+## Author
+
+Muhammad Shayan
+
+GitHub: https://github.com/mshayan1
