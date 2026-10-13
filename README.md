@@ -6,6 +6,9 @@ An end-to-end data engineering project that extracts, transforms, and loads Braz
 
 This project demonstrates a practical ETL pipeline using the Olist Brazilian e-commerce dataset. Python and Pandas are used to process the data, Neon PostgreSQL stores the resulting tables, and GitHub Actions runs the pipeline automatically.
 
+
+![E-Commerce Data Engineering Pipeline](ecommerce-pipeline-overview.png)
+
 ## Architecture
 
 ```mermaid
