@@ -17,13 +17,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+     
       - name: Check repository files
         run: |
-          echo "Working directory:"
-          pwd
-          echo "Repository files:"
+          echo "Workspace: $GITHUB_WORKSPACE"
           ls -la "$GITHUB_WORKSPACE"
-          test -f "$GITHUB_WORKSPACE/requirements.txt"
+          if [ -f "$GITHUB_WORKSPACE/requirements.txt" ]; then
+            echo "SUCCESS: requirements.txt found"
+            cat "$GITHUB_WORKSPACE/requirements.txt"
+          else
+            echo "ERROR: requirements.txt missing"
+            exit 1
+          fi
+
 
       - name: Set up Python
         uses: actions/setup-python@v5
